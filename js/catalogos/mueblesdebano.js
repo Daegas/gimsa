@@ -7,40 +7,24 @@ var juego = ['eco', 'com']
 $( document ).ready(function() {
     //////////////////// START FILTERS //////////////////////
     // size
-    $('#xs').on('change', function() {
+    $('#xs, #s, #l, #xl').on('change', function() {
         Filter(sizes)
     });
-    $('#s').on('change', function() {
-        Filter(sizes)
-    });
-    $('#l').on('change', function() {
-        Filter(sizes)
-    });
-    $('#xl').on('change', function() {
-        Filter(sizes)
-    });
-    // material
-    $('#mar').on('change', function() {
+    //material
+    $('#mar, #oni').on('change', function() {
         Filter(material)
-    });
-    $('#oni').on('change', function() {
-        Filter(material)
-    });
+    }); 
     // juegos
-    $('#eco').on('change', function() {
-        Filter(juego)
-    });
-    $('#com').on('change', function() {
+    $('#eco, #com').on('change', function() {
         Filter(juego)
     });
     //////////////////// END FILTERS //////////////////////
-
 });
 
 function Filter(array) {
     for(item of array){
         HideOrShowClass(item, 'none')
-    }
+    }   
     for(item of array){
         let val = $("#" + item).is(':checked')
         if(val) HideOrShowClass(item, 'block')
